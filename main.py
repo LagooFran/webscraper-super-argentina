@@ -1,3 +1,5 @@
 import driver as d
 
-d.GetCarrefour()
+res = d.GetCarrefour()
+for prod in res:
+    print(prod)
