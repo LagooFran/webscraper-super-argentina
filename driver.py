@@ -22,9 +22,10 @@ def GetCarrefour():
         prod = {}
         name = r.find_element(By.CLASS_NAME, 'vtex-product-summary-2-x-productBrand.vtex-product-summary-2-x-brandName.t-body').text
         price = r.find_element(By.CLASS_NAME, 'valtech-carrefourar-product-price-0-x-currencyContainer').text
-        
+        priceWeight = r.find_element(By.CLASS_NAME, 'valtech-carrefourar-dynamic-weight-price-0-x-currencyContainer').text
         prod.setdefault("name", name)
         prod.setdefault("price", price)
+        prod.setdefault("priceWeight", priceWeight)
 
         finalRes.append(prod)
     driver.quit()
