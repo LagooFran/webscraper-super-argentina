@@ -1,3 +1,5 @@
 from scrapers import carrefour
 
-print(carrefour.getProds("arroz", 4))
+res = carrefour.getProds("coca cola", 4)
+for prod in res:
+    print(res[prod])
