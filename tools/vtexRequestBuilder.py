@@ -2,10 +2,10 @@ import urllib.parse as urlib
 import base64 as b64
 import json as j
 
-def BuildRequest(query, url):
+def BuildRequest(query, cant, url):
     
     finalRequest = url + "/_v/segment/graphql/v1" + FormatParams()
-    finalRequest += "&variables={}" + "&extensions=" + GetExtensions(query)
+    finalRequest += "&variables={}" + "&extensions=" + GetExtensions(query, cant)
 
     return finalRequest
 
@@ -34,10 +34,10 @@ def FormatParams():
 
     return formattedParams
 
-def GetExtensions(query):
+def GetExtensions(query, cant):
     #json pre armado
     variables = {
-        "count" : 4,
+        "count" : cant,
         "fullText" : query,
         "hideUnavailableItems" : True,
         "productOriginVtex" : True,

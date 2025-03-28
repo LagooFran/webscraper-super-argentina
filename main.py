@@ -1,7 +1,3 @@
-from tools import vtexRequestBuilder
-import requests
+from scrapers import carrefour
 
-res = requests.get(vtexRequestBuilder.BuildRequest("arroz", "https://www.carrefour.com.ar"))
-
-for key in res.json()["data"]["productSuggestions"]["products"]:
-    print(key["productName"])
+print(carrefour.getProds("arroz", 4))
