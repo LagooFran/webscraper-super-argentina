@@ -1,6 +1,6 @@
 from scrapers import vtexScrapers
 
-def getProductsWithQuery(query, cant, debug=False):
+def getAllProductsWithQuery(query, cant, debug=True):
 
     finalRes = {}
 
@@ -19,7 +19,8 @@ def getProductsWithQuery(query, cant, debug=False):
     return finalRes
 
 
-finalRes = getProductsWithQuery("coca cola", 4)
+
+finalRes = getAllProductsWithQuery("coca cola", 4)
 
 for store in finalRes:
     print(store)
