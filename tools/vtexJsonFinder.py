@@ -25,6 +25,8 @@ def GetProds(query, cant, baseUrl, debug):
         #tuve que hacer muchas cosas para evitar que la lectura de properties se alargue mas de lo necesario
         #se deberia poder optimizar....
 
+        #falla cuando se busca en carrefour porque hacen las cosas diferente en el json!!!!
+
         flagOther = False
         for value in key["properties"]:
             if(value["name"] == "Precio x unidad"):

@@ -19,5 +19,5 @@ def getAllVtexSiteProductsWithQuery(query, cant, debug=True):
     return finalRes
 
 
-res = vtexScrapers.GetMas("harina", 4, True)
+res = vtexScrapers.GetCarrefour("harina", 4, True)
 print(res)
