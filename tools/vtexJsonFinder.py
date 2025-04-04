@@ -19,13 +19,30 @@ def GetProds(query, cant, baseUrl, debug):
         price = key["priceRange"]["sellingPrice"]["highPrice"]
         brand = key["brand"]
         pricePUnit = ""
+        unit = ""
         imgUrl = key["items"][0]["images"][0]["imageUrl"]
         
+        #tuve que hacer muchas cosas para evitar que la lectura de properties se alargue mas de lo necesario
+        #se deberia poder optimizar....
+
+        flagOther = False
         for value in key["properties"]:
             if(value["name"] == "Precio x unidad"):
                 pricePUnit = value["values"][0]
+                if flagOther == True: break
+                flagOther = True
+            elif(value["name"] == "Gramaje factor de conversión"):
+                pricePUnit = float(price)/float(value["values"][0])
+                if flagOther == True: break
+                flagOther = True
+            elif(value["name"] == "Gramaje de unidad de medida"):
+                unit = value["values"][0]
+                if flagOther == True: break
+                flagOther = True
 
-        prod = Product(name, price, brand, pricePUnit, imgUrl)
+        productUrl = baseUrl + str(key["link"]).replace("https://portal.vtexcommercestable.com.br", "")
+
+        prod = Product(name, price, brand, pricePUnit, unit, imgUrl, productUrl)
         products.setdefault(count, prod.ToDict())
 
     return products
