@@ -1,4 +1,5 @@
 from scrapers import vtexScrapers
+from scrapers import meliScraper
 
 def getAllVtexSiteProductsWithQuery(query, cant, debug=True):
 
@@ -18,6 +19,5 @@ def getAllVtexSiteProductsWithQuery(query, cant, debug=True):
 
     return finalRes
 
-
-res = vtexScrapers.GetCarrefour("harina", 4, True)
+res = meliScraper.getMeli()
 print(res)

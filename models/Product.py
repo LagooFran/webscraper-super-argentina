@@ -1,6 +1,6 @@
 class Product:
 
-    def __init__(self, name="", price="", brand="", pricePUnit="", unit="" , imgaeUrl="", productUrl=""):
+    def __init__(self, name="", price="", brand="", pricePUnit="", unit="" , imgaeUrl="", productUrl="", site=""):
         self.name = name
         self.price = price
         self.pricePUnit = pricePUnit
@@ -8,6 +8,7 @@ class Product:
         self.brand = brand
         self.imageUrl = imgaeUrl
         self.productUrl = productUrl
+        self.site = site
 
     def ToDict(self):
         prodDict = {
@@ -17,7 +18,8 @@ class Product:
             "pricePUnit" : self.pricePUnit,
             "unit" : self.unit,
             "imageUrl" : self.imageUrl,
-            "productUrl" : self.productUrl
+            "productUrl" : self.productUrl,
+            "site" : self.site
         }
         return prodDict
 

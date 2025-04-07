@@ -3,7 +3,7 @@ from models.Product import Product
 import requests
 
 
-def GetProds(query, cant, baseUrl, debug):
+def GetProds(query, cant, baseUrl, debug, site):
 
     res = requests.get(vtexRequestBuilder.BuildRequest(query, cant, baseUrl, debug))
     products = {}
@@ -29,11 +29,7 @@ def GetProds(query, cant, baseUrl, debug):
 
         flagOther = False
         for value in key["properties"]:
-            if(value["name"] == "Precio x unidad"):
-                pricePUnit = value["values"][0]
-                if flagOther == True: break
-                flagOther = True
-            elif(value["name"] == "Gramaje factor de conversión"):
+            if(value["name"] == "Gramaje factor de conversión"):
                 pricePUnit = float(price)/float(value["values"][0])
                 if flagOther == True: break
                 flagOther = True
@@ -44,7 +40,7 @@ def GetProds(query, cant, baseUrl, debug):
 
         productUrl = baseUrl + str(key["link"]).replace("https://portal.vtexcommercestable.com.br", "")
 
-        prod = Product(name, price, brand, pricePUnit, unit, imgUrl, productUrl)
+        prod = Product(name, price, brand, pricePUnit, unit, imgUrl, productUrl, site)
         products.setdefault(count, prod.ToDict())
 
     return products
