@@ -19,5 +19,5 @@ def getAllVtexSiteProductsWithQuery(query, cant, debug=True):
 
     return finalRes
 
-res = meliScraper.getMeli()
+res = getAllVtexSiteProductsWithQuery("arroz", 4, True)
 print(res)

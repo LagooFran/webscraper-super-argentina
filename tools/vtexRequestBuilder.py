@@ -67,7 +67,7 @@ def GetExtensions(query, cant):
 
     extensions = {"persistedQuery" : {
         "version" : 1,
-        "sha256Hash" : "0ef2c56d9518b51f912c2305ac4b07851c265b645dcbece6843c568bb91d39ff",
+        "sha256Hash" : "421d731c401921c5fdd5bd8d26ae7bdab48107f78d0b8b6d7346bfbd88e1b264",
         "sender" : "vtex.store-resources@0.x",
         "provider" : "vtex.search-graphql@0.x"
     }, "variables" : str(variablesEncoded.decode()) }
